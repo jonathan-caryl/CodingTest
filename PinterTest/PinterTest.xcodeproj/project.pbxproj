@@ -15,6 +15,10 @@
 		ABEA046915F9130400111CC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEA046815F9130400111CC2 /* AppDelegate.m */; };
 		ABEA046C15F9130400111CC2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEA046B15F9130400111CC2 /* ViewController.m */; };
 		ABEA046F15F9130400111CC2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABEA046D15F9130400111CC2 /* ViewController.xib */; };
+		ABEA047B15F9149B00111CC2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEA047A15F9149B00111CC2 /* User.m */; };
+		ABEA047E15F9156400111CC2 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEA047D15F9156400111CC2 /* Item.m */; };
+		ABEA048015F917D200111CC2 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = ABEA047F15F917D200111CC2 /* logo-57x57.png */; };
+		ABEA048215F917D600111CC2 /* logo-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = ABEA048115F917D600111CC2 /* logo-114x114.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,12 @@
 		ABEA046A15F9130400111CC2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		ABEA046B15F9130400111CC2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		ABEA046E15F9130400111CC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		ABEA047915F9149B00111CC2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		ABEA047A15F9149B00111CC2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		ABEA047C15F9156400111CC2 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		ABEA047D15F9156400111CC2 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		ABEA047F15F917D200111CC2 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-57x57.png"; path = "../logo-57x57.png"; sourceTree = "<group>"; };
+		ABEA048115F917D600111CC2 /* logo-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-114x114.png"; path = "../logo-114x114.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,10 @@
 				ABEA046815F9130400111CC2 /* AppDelegate.m */,
 				ABEA046A15F9130400111CC2 /* ViewController.h */,
 				ABEA046B15F9130400111CC2 /* ViewController.m */,
+				ABEA047915F9149B00111CC2 /* User.h */,
+				ABEA047A15F9149B00111CC2 /* User.m */,
+				ABEA047C15F9156400111CC2 /* Item.h */,
+				ABEA047D15F9156400111CC2 /* Item.m */,
 				ABEA046D15F9130400111CC2 /* ViewController.xib */,
 				ABEA045F15F9130400111CC2 /* Supporting Files */,
 			);
@@ -90,6 +104,8 @@
 		ABEA045F15F9130400111CC2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ABEA048115F917D600111CC2 /* logo-114x114.png */,
+				ABEA047F15F917D200111CC2 /* logo-57x57.png */,
 				ABEA046015F9130400111CC2 /* PinterTest-Info.plist */,
 				ABEA046115F9130400111CC2 /* InfoPlist.strings */,
 				ABEA046415F9130400111CC2 /* main.m */,
@@ -150,6 +166,8 @@
 			files = (
 				ABEA046315F9130400111CC2 /* InfoPlist.strings in Resources */,
 				ABEA046F15F9130400111CC2 /* ViewController.xib in Resources */,
+				ABEA048015F917D200111CC2 /* logo-57x57.png in Resources */,
+				ABEA048215F917D600111CC2 /* logo-114x114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +181,8 @@
 				ABEA046515F9130400111CC2 /* main.m in Sources */,
 				ABEA046915F9130400111CC2 /* AppDelegate.m in Sources */,
 				ABEA046C15F9130400111CC2 /* ViewController.m in Sources */,
+				ABEA047B15F9149B00111CC2 /* User.m in Sources */,
+				ABEA047E15F9156400111CC2 /* Item.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
