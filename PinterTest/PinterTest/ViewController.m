@@ -129,6 +129,54 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+#pragma mark UITableViewDelegate methods
+- (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [_tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSInteger row = indexPath.row;
+    
+    Item *item = [arrayItems objectAtIndex:row];
+    
+    NSURL *url = [NSURL URLWithString:item.href];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+#pragma mark UITableViewDataSource methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (nil == arrayItems)
+        return 0;
+    
+    return [arrayItems count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    NSString *cellIdentifier;
+    NSInteger row     = indexPath.row;
+    
+    cellIdentifier = CellIdentifier;
+    
+    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    // Configure the cell.
+    Item *item = [arrayItems objectAtIndex:row];
+    cell.textLabel.text = item.desc;
+    
+    return cell;
+}
+
 #pragma mark GTGistUserDelegate methods
 - (void)userDidLoadAvatar:(User *)user
 {

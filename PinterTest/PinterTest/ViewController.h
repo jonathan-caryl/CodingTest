@@ -11,7 +11,7 @@
 #import "User.h"
 #import "Item.h"
 
-@interface ViewController : UIViewController <UserDelegate, ItemDelegate>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UserDelegate, ItemDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *viewBlocking;
