@@ -48,7 +48,10 @@
         User *user = [[User alloc] initFromDictionary:userDict avatarSize:CGSizeMake(25.0, 25.0)];
         User *existingUser = [userDictionary objectForKey:user.username];
         if (nil == existingUser)
+        {
+            user.delegate = self;
             [userDictionary setObject:user forKey:user.username];
+        }
         
         Item *item = [[Item alloc] initFromDictionary:dict];
         item.user = user;
