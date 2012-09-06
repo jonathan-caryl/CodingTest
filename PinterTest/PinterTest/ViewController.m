@@ -13,6 +13,7 @@
 - (void) loadJson;
 - (void) jsonLoaded:(NSData *)data;
 - (void) jsonError:(NSError *)error;
+- (void) jsonErrorString:(NSString *)string;
 
 @property (nonatomic, strong) NSMutableArray      *arrayItems;
 @property (nonatomic, strong) NSMutableDictionary *userDictionary;
@@ -28,6 +29,8 @@
 @synthesize tableView;
 @synthesize viewBlocking;
 @synthesize activityIndicator;
+@synthesize buttonRetry;
+@synthesize labelError;
 @synthesize tmpCell;
 
 - (void) jsonLoaded:(NSData *)data
@@ -63,7 +66,7 @@
     
     if (!jsonArray) {
         NSLog(@"Error parsing JSON: %@", e);
-        [self jsonError:nil];
+        [self jsonError:e];
     } else {
         // Get the height for the table cells from our cell NIB
 		[[NSBundle mainBundle] loadNibNamed:@"ItemCell" owner:self options:nil];
@@ -81,8 +84,17 @@
 
 - (void) jsonError:(NSError *)error
 {
+    [self jsonErrorString:error.localizedDescription];
+}
+
+- (void) jsonErrorString:(NSString *)string
+{
+    self.labelError.text = string;
+    
     [UIView beginAnimations:@"error" context:NULL];
     self.activityIndicator.alpha = 0.0;
+    self.buttonRetry.alpha = 1.0;
+    self.labelError.alpha = 1.0;
     
     [UIView commitAnimations];
 }
@@ -91,6 +103,8 @@
 - (IBAction)reloadJson:(id)sender {
     [UIView beginAnimations:@"reload" context:NULL];
     self.activityIndicator.alpha = 1.0;
+    self.buttonRetry.alpha = 0.0;
+    self.labelError.alpha = 0.0;
     
     [UIView commitAnimations];
     [self loadJson];
@@ -111,10 +125,16 @@
          if ([data length] > 0 && error == nil)
              [self jsonLoaded:data];
          else if ([data length] == 0 && error == nil)
-             [self jsonError:nil];
+             [self jsonErrorString:@"No data downloaded"];
+         else if (error != nil && error.code == NSURLErrorTimedOut)
+             [self jsonError:error];
          else if (error != nil)
              [self jsonError:error];
      }];    
+}
+
+
+- (IBAction)retryPressed:(id)sender {
 }
 
 
@@ -130,6 +150,8 @@
     [self setTableView:nil];
     [self setViewBlocking:nil];
     [self setActivityIndicator:nil];
+    [self setButtonRetry:nil];
+    [self setLabelError:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -209,6 +231,4 @@
 {
     [self.tableView reloadData];
 }
-
-
 @end

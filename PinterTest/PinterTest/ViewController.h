@@ -17,7 +17,10 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *viewBlocking;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UIButton *buttonRetry;
+@property (strong, nonatomic) IBOutlet UILabel *labelError;
 
 @property (strong, nonatomic) IBOutlet ItemCell *tmpCell;
 
+- (IBAction)retryPressed:(id)sender;
 @end
