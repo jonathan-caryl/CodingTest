@@ -10,10 +10,14 @@
 
 #import "User.h"
 #import "Item.h"
+#import "ItemCell.h"
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UserDelegate, ItemDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *viewBlocking;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+@property (strong, nonatomic) IBOutlet ItemCell *tmpCell;
+
 @end

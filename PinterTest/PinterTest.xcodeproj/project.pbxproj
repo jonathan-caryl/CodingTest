@@ -19,6 +19,8 @@
 		ABEA047E15F9156400111CC2 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEA047D15F9156400111CC2 /* Item.m */; };
 		ABEA048015F917D200111CC2 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = ABEA047F15F917D200111CC2 /* logo-57x57.png */; };
 		ABEA048215F917D600111CC2 /* logo-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = ABEA048115F917D600111CC2 /* logo-114x114.png */; };
+		ABEA048C15F91AA800111CC2 /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEA048B15F91AA800111CC2 /* ItemCell.m */; };
+		ABEA048E15F91AD500111CC2 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABEA048D15F91AD500111CC2 /* ItemCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,9 @@
 		ABEA047D15F9156400111CC2 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		ABEA047F15F917D200111CC2 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-57x57.png"; path = "../logo-57x57.png"; sourceTree = "<group>"; };
 		ABEA048115F917D600111CC2 /* logo-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-114x114.png"; path = "../logo-114x114.png"; sourceTree = "<group>"; };
+		ABEA048A15F91AA800111CC2 /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
+		ABEA048B15F91AA800111CC2 /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
+		ABEA048D15F91AD500111CC2 /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +100,10 @@
 				ABEA047A15F9149B00111CC2 /* User.m */,
 				ABEA047C15F9156400111CC2 /* Item.h */,
 				ABEA047D15F9156400111CC2 /* Item.m */,
+				ABEA048A15F91AA800111CC2 /* ItemCell.h */,
+				ABEA048B15F91AA800111CC2 /* ItemCell.m */,
 				ABEA046D15F9130400111CC2 /* ViewController.xib */,
+				ABEA048D15F91AD500111CC2 /* ItemCell.xib */,
 				ABEA045F15F9130400111CC2 /* Supporting Files */,
 			);
 			path = PinterTest;
@@ -168,6 +176,7 @@
 				ABEA046F15F9130400111CC2 /* ViewController.xib in Resources */,
 				ABEA048015F917D200111CC2 /* logo-57x57.png in Resources */,
 				ABEA048215F917D600111CC2 /* logo-114x114.png in Resources */,
+				ABEA048E15F91AD500111CC2 /* ItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +192,7 @@
 				ABEA046C15F9130400111CC2 /* ViewController.m in Sources */,
 				ABEA047B15F9149B00111CC2 /* User.m in Sources */,
 				ABEA047E15F9156400111CC2 /* Item.m in Sources */,
+				ABEA048C15F91AA800111CC2 /* ItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSMutableArray      *arrayItems;
 @property (nonatomic, strong) NSMutableDictionary *userDictionary;
+@property (nonatomic, readwrite) CGFloat           cellHeight;
 
 @end
 
@@ -23,10 +24,11 @@
 
 @synthesize arrayItems;
 @synthesize userDictionary;
+@synthesize cellHeight;
 @synthesize tableView;
 @synthesize viewBlocking;
 @synthesize activityIndicator;
-
+@synthesize tmpCell;
 
 - (void) jsonLoaded:(NSData *)data
 {
@@ -60,6 +62,11 @@
         NSLog(@"Error parsing JSON: %@", e);
         [self jsonError:nil];
     } else {
+        // Get the height for the table cells from our cell NIB
+		[[NSBundle mainBundle] loadNibNamed:@"ItemCell" owner:self options:nil];
+        cellHeight = tmpCell.frame.size.height;
+        tmpCell = nil;
+        
         [self.tableView reloadData];
         [UIView beginAnimations:@"hideBlocking" context:NULL];
         
@@ -130,6 +137,11 @@
 }
 
 #pragma mark UITableViewDelegate methods
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return cellHeight;
+}
+
 - (void)tableView:(UITableView *)_tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [_tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -164,15 +176,21 @@
     
     cellIdentifier = CellIdentifier;
     
-    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    ItemCell *cell = (ItemCell *)[_tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+		[[NSBundle mainBundle] loadNibNamed:@"ItemCell" owner:self options:nil];
+		cell = tmpCell;
+		self.tmpCell = nil;
     }
     
     // Configure the cell.
     Item *item = [arrayItems objectAtIndex:row];
-    cell.textLabel.text = item.desc;
+    cell.labelUsername.text = item.user.username;
+    cell.labelAttrib.text = item.attrib;
+    cell.labelDescription.text = item.desc;
+    cell.imageViewUser.image = item.user.avatarImage;
+    cell.imageViewSrc.image = item.imageSrc;
     
     return cell;
 }
