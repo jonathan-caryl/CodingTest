@@ -10,12 +10,10 @@
 
 @interface User ()
 
-@property (nonatomic, readwrite) CGSize avatarSize;
 @end
 
 @implementation User
 
-@synthesize avatarSize;
 @synthesize delegate;
 @synthesize username;
 @synthesize name;
@@ -23,12 +21,11 @@
 @synthesize avatarImage;
 
 
-- (id)initFromDictionary:(NSDictionary *)dictionary avatarSize:(CGSize)_size
+- (id)initFromDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
 	if (nil != self)
     {
-        avatarSize = _size;
         username = [dictionary objectForKey:@"username"];
         name     = [dictionary objectForKey:@"name"];
         NSDictionary *avatarDictionary = [dictionary objectForKey:@"avatar"];

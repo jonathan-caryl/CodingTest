@@ -18,7 +18,7 @@
 
 @interface User : NSObject;
 
-- (id)initFromDictionary:(NSDictionary *)dictionary avatarSize:(CGSize)size;
+- (id)initFromDictionary:(NSDictionary *)dictionary;
 - (void)loadAvatarImage;
 
 @property (nonatomic, strong) id <UserDelegate> delegate;

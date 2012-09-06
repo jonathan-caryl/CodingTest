@@ -48,7 +48,7 @@
     for (NSDictionary *dict in jsonArray)
     {
         NSDictionary *userDict = [dict objectForKey:@"user"];
-        User *user = [[User alloc] initFromDictionary:userDict avatarSize:CGSizeMake(25.0, 25.0)];
+        User *user = [[User alloc] initFromDictionary:userDict];
         User *existingUser = [userDictionary objectForKey:user.username];
         if (nil == existingUser)
         {
