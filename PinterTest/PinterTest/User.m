@@ -33,24 +33,26 @@
         name     = [dictionary objectForKey:@"name"];
         NSDictionary *avatarDictionary = [dictionary objectForKey:@"avatar"];
         avatarSrc = [avatarDictionary objectForKey:@"src"];
-        
-        dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_async(q, ^{
-            UIImage * img = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:avatarSrc]]];
-            
-            if (nil != img)
-            {
-                avatarImage = img;
-                dispatch_async(dispatch_get_main_queue(),
-                               ^{
-                                   [delegate userDidLoadAvatar:self];
-                               });
-                
-            }
-        });
-        
     }
     
     return self;
+}
+
+- (void)loadAvatarImage
+{
+    dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(q, ^{
+        UIImage * img = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:avatarSrc]]];
+        
+        if (nil != img)
+        {
+            avatarImage = img;
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               [delegate userDidLoadAvatar:self];
+                           });
+            
+        }
+    });
 }
 @end

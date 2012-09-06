@@ -54,12 +54,12 @@
         {
             user.delegate = self;
             [userDictionary setObject:user forKey:user.username];
+            existingUser = user;
         }
         
         Item *item = [[Item alloc] initFromDictionary:dict];
-        item.user = user;
+        item.user = existingUser;
         item.delegate = self;
-        [item loadHref];
         
         [arrayItems addObject:item];
     }
@@ -79,6 +79,17 @@
         viewBlocking.alpha = 0.0;
         [activityIndicator stopAnimating];
         [UIView commitAnimations];
+        
+        NSArray *arrayUsers = [userDictionary allValues];
+        for (User *user in arrayUsers)
+        {
+            [user loadAvatarImage];
+        }
+        
+        for (Item *item in arrayItems)
+        {
+            [item loadHref];
+        }
     }    
 }
 
@@ -135,6 +146,7 @@
 
 
 - (IBAction)retryPressed:(id)sender {
+    [self loadJson];
 }
 
 
